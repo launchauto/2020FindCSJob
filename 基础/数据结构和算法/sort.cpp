@@ -3,7 +3,8 @@
 #include<ctime>
 #include<cmath>
 using namespace std;
-//一些功能集成
+
+
 void swap(vector<int>& Data, int i, int j)
 {
 	int temp;
@@ -303,11 +304,11 @@ void Mergesort_interface(vector<int>& Data)
 }
 
 //快速排序,时间复杂度O（nlogn），空间复杂度O(logn),不稳定，冒泡排序升级
-int Partition(vector<int>& Data,int low,int high)
+int Partition(vector<int>& Data,int low,int high)//Partition函数，选择关键字使得左边的值比它小，右边的值比它大
 {
     int pivotkey;
     pivotkey=Data[low];
-    while(low<high)
+    while(low<high)//从表的两端交替向中间扫描
     {
         while(low<high && Data[high]>=pivotkey)
         {
@@ -328,8 +329,8 @@ void Qsort(vector<int>&Data,int low,int high)
     if(low<high)
     {
         pivot=Partition(Data,low,high);
-        Qsort(Data,low,pivot-1);
-        Qsort(Data,pivot+1,high);
+        Qsort(Data,low,pivot-1);  /*对低子表递归排序*/
+        Qsort(Data,pivot+1,high); /*对高子表递归排序*/
     }
 }
 void quicksort(vector<int>& Data)
@@ -346,10 +347,6 @@ void quicksort(vector<int>& Data)
 	cout << "the result is:";
 	print(Data);
 }
-
-
-
-//测试
 int main()
 {
 	vector<int> Data = { 9,7,8,6,10,4,5,3,2};
