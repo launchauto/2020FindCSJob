@@ -3,8 +3,7 @@
 #include<ctime>
 #include<cmath>
 using namespace std;
-
-
+//ä¸€äº›åŠŸèƒ½é›†æˆ
 void swap(vector<int>& Data, int i, int j)
 {
 	int temp;
@@ -21,8 +20,8 @@ void print(vector<int> Data)
 	}
 	cout << endl;
 }
-//Ã°ÅİÅÅĞò³õ¼¶°æ:½»»»ÅÅĞò
-void bubbleSort0(vector<int>& Data) //×¢ÒâÈç¹û´«ÒıÓÃ£¬»á°ÑÖ÷º¯ÊıµÄpDataĞŞ¸Ä
+//å†’æ³¡æ’åºåˆçº§ç‰ˆ:äº¤æ¢æ’åº
+void bubbleSort0(vector<int>& Data) //æ³¨æ„å¦‚æœä¼ å¼•ç”¨ï¼Œä¼šæŠŠä¸»å‡½æ•°çš„pDataä¿®æ”¹
 {
 	cout << "Now we use bubbleSort0" << endl;
 	cout << "the original data is:";
@@ -43,7 +42,7 @@ void bubbleSort0(vector<int>& Data) //×¢ÒâÈç¹û´«ÒıÓÃ£¬»á°ÑÖ÷º¯ÊıµÄpDataĞŞ¸Ä
 	cout << "the result is:";
 	print(Data);
 }
-//Ã°ÅİÅÅĞò,ÏàÁÚÁ½Á½½»»»
+//å†’æ³¡æ’åº,ç›¸é‚»ä¸¤ä¸¤äº¤æ¢
 void bubbleSort(vector<int>& Data)
 {
 	cout << "Now we use bubbleSort." << endl;
@@ -54,7 +53,7 @@ void bubbleSort(vector<int>& Data)
 		return;
 	for (int i = 0; i < length; i++)
 	{
-		//×¢ÒâÊı×éÉÏÏÂ½ç
+		//æ³¨æ„æ•°ç»„ä¸Šä¸‹ç•Œ
 		for (int j = length - 1; j > i; j--)
 		{
 			if (Data[j - 1] > Data[j])
@@ -66,7 +65,7 @@ void bubbleSort(vector<int>& Data)
 	cout << "the result is:";
 	print(Data);
 }
-//¸Ä½øµÄÃ°ÅİÅÅĞò£º×îºÃÇé¿ö£¬ÓĞĞò£¬±È½Ïn-1´Î£¬ÎŞĞè½»»»£»×î²îÇé¿ö£¬ÄæĞò£¬±È½Ïn*(n-1)/2£¬ÒÆ¶¯µÈÊıÁ¿¼¶,O(n^2)
+//æ”¹è¿›çš„å†’æ³¡æ’åºï¼šæœ€å¥½æƒ…å†µï¼Œæœ‰åºï¼Œæ¯”è¾ƒn-1æ¬¡ï¼Œæ— éœ€äº¤æ¢ï¼›æœ€å·®æƒ…å†µï¼Œé€†åºï¼Œæ¯”è¾ƒn*(n-1)/2ï¼Œç§»åŠ¨ç­‰æ•°é‡çº§,O(n^2)
 void bubbleSort2(vector<int>& Data)
 {
 	cout << "Now we use bubbleSort2." << endl;
@@ -93,7 +92,7 @@ void bubbleSort2(vector<int>& Data)
 	cout << "the result is:";
 	print(Data);
 }
-//¼òµ¥Ñ¡ÔñÅÅĞò:O(n^2),ÓÅµãÔÚÓÚ½»»»ÒÆ¶¯´ÎĞò±È½ÏÉÙ£»×îºÃ×î»µ±È½Ï´ÎÊıÒ»Ñù¶àn(n-1)/2£»½»»»×îºÃ0×î²în-1;
+//ç®€å•é€‰æ‹©æ’åº:O(n^2),ä¼˜ç‚¹åœ¨äºäº¤æ¢ç§»åŠ¨æ¬¡åºæ¯”è¾ƒå°‘ï¼›æœ€å¥½æœ€åæ¯”è¾ƒæ¬¡æ•°ä¸€æ ·å¤šn(n-1)/2ï¼›äº¤æ¢æœ€å¥½0æœ€å·®n-1;
 void selectsort(vector<int>& Data)
 {
 	cout << "Now we use selectsort." << endl;
@@ -122,8 +121,8 @@ void selectsort(vector<int>& Data)
 	cout << "the result is:";
 	print(Data);
 }
-//Ö±½Ó²åÈë£º½«Ò»¸ö¼ÇÂ¼²åÈëµ½ÒÑ¾­ÅÅºÃĞòµÄÓĞĞò±íÖĞ,Ö»ĞèÒªÒ»¸ö¼ÇÂ¼µÄ¸¨Öú¿Õ¼ä£¬Ë³Ğò±È½Ïn-1´Î£¬²»ĞèÒªÒÆ¶¯£¬ÄæĞò±È½Ï£¨n+2£©(n-1)/2´Î£¬ÒÆ¶¯£¨n+4£©(n-1)/2´Î
-//Æ½¾ù±È½ÏÒÆ¶¯´ÎÊın^2/4´Î£¬Ê±¼ä¸´ÔÓ¶ÈO(n^2)£¬ĞÔÄÜÂÔÓÅÓÚÃ°ÅİºÍ¼òµ¥Ñ¡ÔñÅÅĞò£»
+//ç›´æ¥æ’å…¥ï¼šå°†ä¸€ä¸ªè®°å½•æ’å…¥åˆ°å·²ç»æ’å¥½åºçš„æœ‰åºè¡¨ä¸­,åªéœ€è¦ä¸€ä¸ªè®°å½•çš„è¾…åŠ©ç©ºé—´ï¼Œé¡ºåºæ¯”è¾ƒn-1æ¬¡ï¼Œä¸éœ€è¦ç§»åŠ¨ï¼Œé€†åºæ¯”è¾ƒï¼ˆn+2ï¼‰(n-1)/2æ¬¡ï¼Œç§»åŠ¨ï¼ˆn+4ï¼‰(n-1)/2æ¬¡
+//å¹³å‡æ¯”è¾ƒç§»åŠ¨æ¬¡æ•°n^2/4æ¬¡ï¼Œæ—¶é—´å¤æ‚åº¦O(n^2)ï¼Œæ€§èƒ½ç•¥ä¼˜äºå†’æ³¡å’Œç®€å•é€‰æ‹©æ’åºï¼›
 void insertsort(vector<int>& Data)
 {
 	cout << "Now we use selectsort." << endl;
@@ -133,7 +132,7 @@ void insertsort(vector<int>& Data)
 
 	if (!length)
 		return;
-	//×¢Òâi,j¿ÉÒÔ¶¨ÒåÔÚÑ­»·ÌåÍâÀ©´ó×÷ÓÃÓò
+	//æ³¨æ„i,jå¯ä»¥å®šä¹‰åœ¨å¾ªç¯ä½“å¤–æ‰©å¤§ä½œç”¨åŸŸ
 	int guard, i, j;
 
 	for (i = 1; i < length; i++)
@@ -141,7 +140,7 @@ void insertsort(vector<int>& Data)
 		if (Data[i] < Data[i - 1])
 		{
 			guard = Data[i];
-			for (j = i - 1; j >= 0 && Data[j] > guard; j--) //×¢Òâj>=0Ìõ¼ş²»¿ÉÉÙ,·ñÔò{2,5,6,1}»á·¢ÉúÊı×éÔ½½ç,&&¶ÌÂ·ÔËËã£¬j>=0ÒªĞ´ÔÚÇ°Ãæ
+			for (j = i - 1; j >= 0 && Data[j] > guard; j--) //æ³¨æ„j>=0æ¡ä»¶ä¸å¯å°‘,å¦åˆ™{2,5,6,1}ä¼šå‘ç”Ÿæ•°ç»„è¶Šç•Œ,&&çŸ­è·¯è¿ç®—ï¼Œj>=0è¦å†™åœ¨å‰é¢
 			{
 				Data[j + 1] = Data[j];
 			}
@@ -151,8 +150,8 @@ void insertsort(vector<int>& Data)
 	cout << "the result is:";
 	print(Data);
 }
-//Ï£¶ûÅÅĞò£º»ù±¾ÓĞĞò¶ø·Ç¾Ö²¿ÓĞĞò£»Ê±¼ä¸´ÔÓ¶ÈO(n^3/2),²»ÎÈ¶¨,ÊôÓÚ²åÈëÅÅĞòµÄÉı¼¶
-//incrementalÈçºÎÈ¡»¹Ã»ÓĞ½âÎö½â£¬µ«ÓĞ¾­Ñé½â
+//å¸Œå°”æ’åºï¼šåŸºæœ¬æœ‰åºè€Œéå±€éƒ¨æœ‰åºï¼›æ—¶é—´å¤æ‚åº¦O(n^3/2),ä¸ç¨³å®š,å±äºæ’å…¥æ’åºçš„å‡çº§
+//incrementalå¦‚ä½•å–è¿˜æ²¡æœ‰è§£æè§£ï¼Œä½†æœ‰ç»éªŒè§£
 void shellsort(vector<int>& Data)
 {
 	cout << "Now we use shellsort." << endl;
@@ -186,20 +185,20 @@ void shellsort(vector<int>& Data)
 	print(Data);
 }
 /*
-ÀûÓÃÍêÈ«¶ş²æÊ÷[log2n]+1ÌØĞÔ£¬ÓÉÓÚ¶ÑÅÅĞò¶ÔÔ­Ê¼¼ÇÂ¼µÄÅÅĞò×´Ì¬²¢²»Ãô¸Ğ£¬ Òò´ËËüÎŞÂÛÊÇ×îºÃ¡¢ ×î»µºÍÆ½¾ùÊ±¼ä¸´ÔÓ¶È¾ùÎªO(nlogn)¡£ ÕâÔÚĞÔÄÜÉÏÏÔÈ»ÒªÔ¶Ô¶ºÃ¹ıÓÚÃ°Åİ¡¢ ¼òµ¥Ñ¡Ôñ¡¢ Ö±½Ó²åÈëµÄO(n^2)µÄÊ±¼ä¸´ÔÓ¶ÈÁË¡£
-¿Õ¼ä¸´ÔÓ¶ÈÉÏ£¬ËüÖ»ÓĞÒ»¸öÓÃÀ´½»»»µÄÔİ´æµ¥Ôª£¬ Ò²·Ç³£µÄ²»´í¡£ ²»¹ıÓÉÓÚ¼ÇÂ¼ µÄ±È½ÏÓë½»»»ÊÇÌøÔ¾Ê½½øĞĞ£¬ Òò´Ë¶ÑÅÅĞòÒ²ÊÇÒ»ÖÖ²»ÎÈ¶¨µÄÅÅĞò·½·¨¡£
-ÁíÍâ£¬ ÓÉÓÚ³õÊ¼¹¹½¨¶ÑËùĞèµÄ±È½Ï´ÎÊı½Ï¶à£¬Òò´Ë£¬ Ëü²¢²»ÊÊºÏ´ıÅÅĞòĞòÁĞ¸öÊı½ÏÉÙµÄÇé¿ö¡£ */
+åˆ©ç”¨å®Œå…¨äºŒå‰æ ‘[log2n]+1ç‰¹æ€§ï¼Œç”±äºå †æ’åºå¯¹åŸå§‹è®°å½•çš„æ’åºçŠ¶æ€å¹¶ä¸æ•æ„Ÿï¼Œ å› æ­¤å®ƒæ— è®ºæ˜¯æœ€å¥½ã€ æœ€åå’Œå¹³å‡æ—¶é—´å¤æ‚åº¦å‡ä¸ºO(nlogn)ã€‚ è¿™åœ¨æ€§èƒ½ä¸Šæ˜¾ç„¶è¦è¿œè¿œå¥½è¿‡äºå†’æ³¡ã€ ç®€å•é€‰æ‹©ã€ ç›´æ¥æ’å…¥çš„O(n^2)çš„æ—¶é—´å¤æ‚åº¦äº†ã€‚
+ç©ºé—´å¤æ‚åº¦ä¸Šï¼Œå®ƒåªæœ‰ä¸€ä¸ªç”¨æ¥äº¤æ¢çš„æš‚å­˜å•å…ƒï¼Œ ä¹Ÿéå¸¸çš„ä¸é”™ã€‚ ä¸è¿‡ç”±äºè®°å½• çš„æ¯”è¾ƒä¸äº¤æ¢æ˜¯è·³è·ƒå¼è¿›è¡Œï¼Œ å› æ­¤å †æ’åºä¹Ÿæ˜¯ä¸€ç§ä¸ç¨³å®šçš„æ’åºæ–¹æ³•ã€‚
+å¦å¤–ï¼Œ ç”±äºåˆå§‹æ„å»ºå †æ‰€éœ€çš„æ¯”è¾ƒæ¬¡æ•°è¾ƒå¤šï¼Œå› æ­¤ï¼Œ å®ƒå¹¶ä¸é€‚åˆå¾…æ’åºåºåˆ—ä¸ªæ•°è¾ƒå°‘çš„æƒ…å†µã€‚ */
 void HeapAdjust(vector<int>&Data, int s, int length)
 {
 	int temp, j;
-	temp = Data[s];//ÏÈÈ¡³öµ±Ç°ÔªËØs
-	for (j = 2 * s + 1; j < length; j = j * 2 + 1) /* ´Ós½áµã×ó×Ó½áµã¿ªÊ¼£¬Ò²¾ÍÊÇ2*s+1´¦ */
+	temp = Data[s];//å…ˆå–å‡ºå½“å‰å…ƒç´ s
+	for (j = 2 * s + 1; j < length; j = j * 2 + 1) /* ä»sç»“ç‚¹å·¦å­ç»“ç‚¹å¼€å§‹ï¼Œä¹Ÿå°±æ˜¯2*s+1å¤„ */
 	{
-		if (1 + j < length && Data[j] < Data[j + 1])//j+1<length,¼´ÎªÓÒ×Ó½áµã´æÔÚ¡£Èç¹û×ó×Ó½áµãĞ¡ÓÚÓÒ×Ó½áµã£¬jÖ¸ÏòÓÒ×Ó½áµã
+		if (1 + j < length && Data[j] < Data[j + 1])//j+1<length,å³ä¸ºå³å­ç»“ç‚¹å­˜åœ¨ã€‚å¦‚æœå·¦å­ç»“ç‚¹å°äºå³å­ç»“ç‚¹ï¼ŒjæŒ‡å‘å³å­ç»“ç‚¹
 		{
 			j++;
 		}
-		if (Data[j] > temp)//Èç¹û×Ó½Úµã´óÓÚ¸¸½Úµã£¬½«×Ó½ÚµãÖµ¸³¸ø¸¸½Úµã£¨²»ÓÃ½øĞĞ½»»»£©
+		if (Data[j] > temp)//å¦‚æœå­èŠ‚ç‚¹å¤§äºçˆ¶èŠ‚ç‚¹ï¼Œå°†å­èŠ‚ç‚¹å€¼èµ‹ç»™çˆ¶èŠ‚ç‚¹ï¼ˆä¸ç”¨è¿›è¡Œäº¤æ¢ï¼‰
 		{
 			Data[s] = Data[j];
 			s = j;
@@ -222,22 +221,22 @@ void heapsort(vector<int>& Data)
 		return;
 
 	int i;
-	for (i = length / 2 - 1; i >= 0; i--) /*  j½áµãµÄ¸¸½ÚµãÎª[j/2]£¬ÓÖÏÂ±ê´Ó0¿ªÊ¼£¬ËùÒÔÒª¼õÈ¥1£»°ÑData¹¹½¨³ÉÒ»¸ö´ó¸ù¶Ñ */
+	for (i = length / 2 - 1; i >= 0; i--) /*  jç»“ç‚¹çš„çˆ¶èŠ‚ç‚¹ä¸º[j/2]ï¼Œåˆä¸‹æ ‡ä»0å¼€å§‹ï¼Œæ‰€ä»¥è¦å‡å»1ï¼›æŠŠDataæ„å»ºæˆä¸€ä¸ªå¤§æ ¹å † */
 		HeapAdjust(Data, i, length);
 
 	for (i = length - 1; i > 0; i--)
 	{
-		swap(Data, 0, i); /* ½«¶Ñ¶¥¼ÇÂ¼ºÍµ±Ç°Î´¾­ÅÅĞò×ÓĞòÁĞµÄ×îºóÒ»¸ö¼ÇÂ¼½»»» */
-		HeapAdjust(Data, 0, i); /*  ½«Data[0..i-1]ÖØĞÂµ÷ÕûÎª´ó¸ù¶Ñ */
+		swap(Data, 0, i); /* å°†å †é¡¶è®°å½•å’Œå½“å‰æœªç»æ’åºå­åºåˆ—çš„æœ€åä¸€ä¸ªè®°å½•äº¤æ¢ */
+		HeapAdjust(Data, 0, i); /*  å°†Data[0..i-1]é‡æ–°è°ƒæ•´ä¸ºå¤§æ ¹å † */
 	}
 	cout << "the result is:";
 	print(Data);
 }
 
-//·Çµİ¹éÊµÏÖ¹é²¢ÅÅĞò£¬±È½ÏÕ¼ÓÃÄÚ´æ£¬Ğ§ÂÊ¸ß£¬ÎÈ¶¨£»×îºÃ¡¢×î»µ¡¢Æ½¾ùÊ±¼äĞÔÄÜO(nlogn);¿Õ¼ä¸´ÔÓ¶ÈO(n)
+//éé€’å½’å®ç°å½’å¹¶æ’åºï¼Œæ¯”è¾ƒå ç”¨å†…å­˜ï¼Œæ•ˆç‡é«˜ï¼Œç¨³å®šï¼›æœ€å¥½ã€æœ€åã€å¹³å‡æ—¶é—´æ€§èƒ½O(nlogn);ç©ºé—´å¤æ‚åº¦O(n)
 void Merge(vector<int>& c, vector<int>& d, int left, int middle, int right)
 {
-    // ºÏ²¢c[left:middle]ºÍc[middle+1:right]µ½d[1eft:right]
+    // åˆå¹¶c[left:middle]å’Œc[middle+1:right]åˆ°d[1eft:right]
     int i = left, j = middle + 1, k = left;
     while (i <= middle && j <= right) {
         if (c[i] <= c[j]) {
@@ -260,14 +259,14 @@ void Merge(vector<int>& c, vector<int>& d, int left, int middle, int right)
 
 void MergePass(vector<int> &x, vector<int> &y, int gap, int length)
 {
-    // ºÏ²¢´óĞ¡ÎªsµÄÏàÁÚ×Ó×é
+    // åˆå¹¶å¤§å°ä¸ºsçš„ç›¸é‚»å­ç»„
     int i = 0;
     while (i <= length-2*gap) {
-        // ºÏ²¢´óĞ¡ÎªsµÄÏàÁÚ2¶Î×ÓÊı×é
+        // åˆå¹¶å¤§å°ä¸ºsçš„ç›¸é‚»2æ®µå­æ•°ç»„
         Merge(x, y, i, i + gap - 1, i + 2 * gap  - 1);
         i = i + 2 * gap;
     }
-    // Ê£ÏÂµÄÔªËØÉÙÓÚ2s
+    // å‰©ä¸‹çš„å…ƒç´ å°‘äº2s
     if ( i + gap < length ) {
         Merge(x, y, i, i + gap -1, length - 1);
     } else {
@@ -282,9 +281,9 @@ void MergeSort(vector<int> &Data, int length)
     vector<int> temp = vector<int>(length);
     int gap = 1;
     while (gap < length) {
-        MergePass(Data, temp, gap, length);      // ºÏ²¢µ½Êı×étemp
+        MergePass(Data, temp, gap, length);      // åˆå¹¶åˆ°æ•°ç»„temp
         gap += gap;
-        MergePass(temp, Data, gap, length);      // ºÏ²¢µ½Êı×éData
+        MergePass(temp, Data, gap, length);      // åˆå¹¶åˆ°æ•°ç»„Data
         gap += gap;
     }
 
@@ -303,10 +302,39 @@ void Mergesort_interface(vector<int>& Data)
 	print(Data);
 }
 
-//¿ìËÙÅÅĞò,Ê±¼ä¸´ÔÓ¶ÈO£¨nlogn£©£¬¿Õ¼ä¸´ÔÓ¶ÈO(logn),²»ÎÈ¶¨£¬Ã°ÅİÅÅĞòÉı¼¶
+//å¿«é€Ÿæ’åº,æ—¶é—´å¤æ‚åº¦Oï¼ˆnlognï¼‰ï¼Œç©ºé—´å¤æ‚åº¦O(logn),ä¸ç¨³å®šï¼Œå†’æ³¡æ’åºå‡çº§
+int Partition(vector<int>& Data,int low,int high)
+{
+    int pivotkey;
+    pivotkey=Data[low];
+    while(low<high)
+    {
+        while(low<high && Data[high]>=pivotkey)
+        {
+            high--;
+        }
+        swap(Data,low,high);
+        while(low<high && Data[low]<=pivotkey)
+        {
+            low++;
+        }
+        swap(Data,low,high);
+    }
+    return low;
+}
+void Qsort(vector<int>&Data,int low,int high)
+{
+    int pivot;
+    if(low<high)
+    {
+        pivot=Partition(Data,low,high);
+        Qsort(Data,low,pivot-1);
+        Qsort(Data,pivot+1,high);
+    }
+}
 void quicksort(vector<int>& Data)
 {
-	cout << "Now we use heapsort." << endl;
+	cout << "Now we use quicksort." << endl;
 	cout << "the original data is:";
 	print(Data);
 	int length = Data.size();
@@ -314,10 +342,14 @@ void quicksort(vector<int>& Data)
 	if (!length)
 		return;
 
-
+    Qsort(Data,0,length-1);
 	cout << "the result is:";
 	print(Data);
 }
+
+
+
+//æµ‹è¯•
 int main()
 {
 	vector<int> Data = { 9,7,8,6,10,4,5,3,2};
@@ -329,47 +361,47 @@ int main()
 	c_start = clock();
 	bubbleSort0(p1);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 	c_start = clock();
 	bubbleSort(p2);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 	c_start = clock();
 	bubbleSort2(p3);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 	c_start = clock();
 	selectsort(p4);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 	c_start = clock();
 	insertsort(p5);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 	c_start = clock();
 	shellsort(p6);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 	c_start = clock();
 	heapsort(p7);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 	c_start = clock();
     Mergesort_interface(p8);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 	c_start = clock();
 	quicksort(p9);
 	c_end = clock();
-	cout << "µ±Ç°ÅÅĞòËã·¨»¨·ÑÊ±¼äÎª£º" << difftime(c_end, c_start) << "ms" << endl << endl;
+	cout << "å½“å‰æ’åºç®—æ³•èŠ±è´¹æ—¶é—´ä¸ºï¼š" << difftime(c_end, c_start) << "ms" << endl << endl;
 
 
 	return 0;
