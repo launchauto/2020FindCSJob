@@ -124,19 +124,11 @@ void selectsort(vector<int>& Data)
 }
 //直接插入：将一个记录插入到已经排好序的有序表中,只需要一个记录的辅助空间，顺序比较n-1次，不需要移动，逆序比较（n+2）(n-1)/2次，移动（n+4）(n-1)/2次
 //平均比较移动次数n^2/4次，时间复杂度O(n^2)，性能略优于冒泡和简单选择排序；
-void insertsort(vector<int>& Data)
+void insertsortcore(vector<int>& Data,int length)
 {
-	cout << "Now we use selectsort." << endl;
-	cout << "the original data is:";
-	print(Data);
-	int length = Data.size();
-
-	if (!length)
-		return;
-	//注意i,j可以定义在循环体外扩大作用域
-	int guard, i, j;
-
-	for (i = 1; i < length; i++)
+    //注意i,j可以定义在循环体外扩大作用域
+    int guard, i, j;
+    for (i = 1; i < length; i++)
 	{
 		if (Data[i] < Data[i - 1])
 		{
@@ -148,6 +140,17 @@ void insertsort(vector<int>& Data)
 			Data[j + 1] = guard;
 		}
 	}
+}
+void insertsort(vector<int>& Data)
+{
+	cout << "Now we use selectsort." << endl;
+	cout << "the original data is:";
+	print(Data);
+	int length = Data.size();
+
+	if (!length)
+		return;
+	insertsortcore(Data,length);
 	cout << "the result is:";
 	print(Data);
 }
@@ -307,6 +310,17 @@ void Mergesort_interface(vector<int>& Data)
 int Partition(vector<int>& Data,int low,int high)//Partition函数，选择关键字使得左边的值比它小，右边的值比它大
 {
     int pivotkey;
+    //使用三数取中优化枢轴的选择，若数据量非常大的时候还可以选择九数取中
+    if(low<high)
+    {
+        int middle=low+(high-low)/2;
+        if(Data[low]>Data[high])//左较小
+            swap(Data,low,high);
+        if(Data[middle]>Data[high])//中较小
+            swap(Data,middle,high);
+        if(Data[middle]>Data[low])//两个较小者，较大者放在low
+            swap(Data,middle,low);
+    }
     pivotkey=Data[low];
     while(low<high)//从表的两端交替向中间扫描
     {
@@ -314,24 +328,37 @@ int Partition(vector<int>& Data,int low,int high)//Partition函数，选择关�
         {
             high--;
         }
-        swap(Data,low,high);
+        Data[low]=Data[high];//采用替换而非交换，优化不必要的交换
+        //swap(Data,low,high);
         while(low<high && Data[low]<=pivotkey)
         {
             low++;
         }
-        swap(Data,low,high);
+        Data[high]=Data[low];
+        //swap(Data,low,high);
     }
+    Data[low]=pivotkey;
     return low;
 }
 void Qsort(vector<int>&Data,int low,int high)
 {
     int pivot;
-    if(low<high)
-    {
-        pivot=Partition(Data,low,high);
-        Qsort(Data,low,pivot-1);  /*对低子表递归排序*/
-        Qsort(Data,pivot+1,high); /*对高子表递归排序*/
+    if((high-low)>7) /*当high-low大于常数（1000可替换）时使用快速排序*/
+    {//尾部递归优化
+        while(low<high)
+        {
+            pivot=Partition(Data,low,high);
+            Qsort(Data,low,pivot-1);
+            low=pivot+1;
+        }
+        //pivot=Partition(Data,low,high);
+        //Qsort(Data,low,pivot-1);  /*对低子表递归排序*/
+        //Qsort(Data,pivot+1,high); /*对高子表递归排序*/
     }
+    else
+    /*当high-low小于等于常数时使用直接插入排序*/
+    //优化小数组时的排序方式
+        insertsortcore(Data,Data.size());
 }
 void quicksort(vector<int>& Data)
 {
@@ -349,7 +376,7 @@ void quicksort(vector<int>& Data)
 }
 int main()
 {
-	vector<int> Data = { 9,7,8,6,10,4,5,3,2};
+	vector<int> Data = { 1,2,2,3,4,5,6,7,0};
 	vector<int> p1, p2, p3, p4, p5, p6, p7,p8,p9;
 	p1 = p2 = p3 = p4 = p5 = p6 = p7 = p8=p9=Data;
 	time_t c_start, c_end;
