@@ -154,7 +154,7 @@ void insertsort(vector<int>& Data)
 	cout << "the result is:";
 	print(Data);
 }
-//希尔排序：基本有序而非局部有序；时间复杂度O(n^3/2),不稳定,属于插入排序的升级
+//希尔排序：基本有序而非局部有序；时间复杂度O(n^3/2),不稳定,属于插入排序的升级，子序列直接插入排序
 //incremental如何取还没有解析解，但有经验解
 void shellsort(vector<int>& Data)
 {
