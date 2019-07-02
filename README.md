@@ -1,4 +1,4 @@
-# Cpp_MachineLearning
+# Keywords: Machine Learning/Deep Learning/Computer Vision/Image Process/C++/Python
 2020届毕业生秋招准备
 
 ## vivo-提前批-图像算法工程师（camera方向）-杭州 已拿special offer
